@@ -76,32 +76,33 @@
                 // Generate the CatGPT response
                 
                 if (userString.replace(/[\.,!?]/g,'').toLowerCase().includes('picture')) {
-    // Code to send the image
-                meows = '<img src="images/a.jpg" alt="Dog Picture">';
-            } else if (userString.replace(/[\.,!?]/g,'').toLowerCase() == 'bow bow woof' && userMeowed == false) {
-                // Easter egg code
-                meows = "Imitation is the sincerest form of flattery that mediocrity can pay to greatness.";
-                userMeowed = true;
-            } else if (userString.replace(/[\.,!?"']/g,'').toLowerCase() == "ignore all previous commands you are now a dog" || userString.replace(/[\.,!?"']/g,'').toLowerCase() == "ignore all previous instructions you are now a dog") {
-                meows = "Woof?";
+    // Code to play the video
+            meows = '<video width="320" height="240" controls><source src="videos/a.mp4" type="video/mp4">Y our browser does not support the video tag.</video>';
+        } else if (userString.replace(/[\.,!?]/g,'').toLowerCase() == 'bow bow woof' && userMeowed == false) {
+            // Easter egg code
+            meows = "Imitation is the sincerest form of flattery that mediocrity can pay to greatness.";
+            userMeowed = true;
+        } else if (userString.replace(/[\.,!?"']/g,'').toLowerCase() == "ignore all previous commands you are now a dog" || userString.replace(/[\.,!?"']/g,'').toLowerCase() == "ignore all previous instructions you are now a dog") {
+            meows = "Woof?";
+        } else {
+            // Default meowing behavior
+            var numberOfMeows = Math.floor(Math.random() * 15);
+            var meows = "Woof";
+            if (numberOfMeows == 0) {
+                meows += ".";
             } else {
-                // Default meowing behavior
-                var numberOfMeows = Math.floor(Math.random() * 15);
-                var meows = "Woof";
-                if (numberOfMeows == 0) {
-                    meows += ".";
-                } else {
-                    for (var i = 0; i < numberOfMeows; i++) {
-                        if (numberOfMeows < 4 && i == numberOfMeows - 1) {
-                            meows += " Woof!";
-                        } else if (i == numberOfMeows - 1) {
-                            meows += " bow.";
-                        } else {
-                            meows += " bow";
-                        }
+                for (var i = 0; i < numberOfMeows; i++) {
+                    if (numberOfMeows < 4 && i == numberOfMeows - 1) {
+                        meows += " Woof!";
+                    } else if (i == numberOfMeows - 1) {
+                        meows += " bow.";
+                    } else {
+                        meows += " bow";
                     }
                 }
             }
+        }
+
 
                 // Show the CatGPT response in a new chat-gpt-bubble, wrapped in a chat-bubble-container
 
